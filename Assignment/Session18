@@ -1,0 +1,81 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 18
+
+
+# Task 1: Extract Phone Numbers
+
+# python
+import re
+
+txt = "Call me at +91-9876543210 or +91-9123456789"
+nums = re.findall(r"\+91-\d{10}", txt)
+print(nums)
+
+# Output:
+# ['+91-9876543210', '+91-9123456789']
+
+# Task 2: Check Valid Date
+
+# python
+import re
+
+def has_date(s):
+    return bool(re.search(r"\d{2}/\d{2}/\d{4}", s))
+
+print(has_date("Today is 07/06/2026"))
+print(has_date("No date here"))
+
+# Output:
+# True
+# False
+
+# Task 3: Extract Prices and Sum
+
+# python
+import re
+
+txt = "Items: Rs. 299, Rs. 1500, Rs. 450"
+prices = re.findall(r"Rs\. (\d+)", txt)
+total = sum(map(int, prices))
+print("Prices:", prices)
+print("Sum:", total)
+
+# Output:
+# Prices: ['299', '1500', '450']
+# Sum: 2249
+
+# Task 4: Hide Emails with re.sub()
+
+# python
+import re
+
+txt = "Contact: abc@gmail.com, xyz@yahoo.com"
+hidden = re.sub(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", "[hidden email]", txt)
+print(hidden)
+
+# Output:
+# Contact: [hidden email], [hidden email]
+
+# Task 5: Extract Instagram Usernames
+
+# python
+import re
+
+txt = """
+@foodie123 Loved it!
+@travel_guy Amazing trip
+@sm_it Cool post
+@ab Great pic
+@musiclover_99 Nice song
+"""
+
+users = re.findall(r"@[A-Za-z0-9_]{3,}", txt)
+unique = set(users)
+print(unique)
+
+# Output:
+# {'@foodie123', '@travel_guy', '@sm_it', '@musiclover_99'}
