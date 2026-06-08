@@ -1,0 +1,88 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 19-A
+
+
+# Task 1: GET Request – First 5 Post Titles
+
+# python
+import requests
+
+res = requests.get("https://jsonplaceholder.typicode.com/posts")
+data = res.json()
+
+for p in data[:5]:
+    print(p["title"])
+
+# Output (example):
+# sunt aut facere repellat provident occaecati
+# qui est esse
+# ea molestias quasi exercitationem repellat qui ipsa sit aut
+# eum et est occaecati
+# nesciunt quas odio
+
+# Task 2: Zomato‑Style Restaurant Dictionary → JSON
+
+# python
+import json
+
+rest = {
+    "name": "Foodie Hub",
+    "location": "Ahmedabad",
+    "cuisines": ["Indian", "Chinese"],
+    "rating": 4.5
+}
+
+print(json.dumps(rest))
+
+# Output:
+# {"name": "Foodie Hub", "location": "Ahmedabad", "cuisines": ["Indian", "Chinese"], "rating": 4.5}
+
+# Task 3: POST Request – Add Playlist
+
+# python
+import requests
+
+payload = {
+    "title": "My Playlist",
+    "userId": 1,
+    "body": "Songs I love"
+}
+
+res = requests.post("https://jsonplaceholder.typicode.com/posts", json=payload)
+print("Status:", res.status_code)
+print("Response:", res.json())
+
+# Output (example):
+# Status: 201
+# Response: {'title': 'My Playlist', 'userId': 1, 'body': 'Songs I love', 'id': 101}
+
+# Task 4: GET Request with Query Param (userId=2)
+
+# python
+import requests
+
+res = requests.get("https://jsonplaceholder.typicode.com/posts", params={"userId": 2})
+data = res.json()
+
+ids = [p["id"] for p in data]
+print(ids)
+
+# Output (example):
+# [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+# Task 5: Custom HTTP Headers Example
+
+# python
+import requests
+
+url = "https://jsonplaceholder.typicode.com/posts"
+headers = {"Authorization": "Bearer mytoken123"}
+
+res = requests.get(url, headers=headers)
+print("Status:", res.status_code)
+# Output (example):
+# Status: 200
