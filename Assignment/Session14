@@ -1,0 +1,80 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 14
+
+
+# Task 1: Write Playlist to Text File
+
+# python
+f = open("playlist.txt", "w")
+f.write("Song A\n")
+f.write("Song B\n")
+f.write("Song C\n")
+f.write("Song D\n")
+f.write("Song E\n")
+f.close()
+
+# Task 2: Read Playlist and Print Uppercase
+
+# python
+f = open("playlist.txt", "r")
+for line in f:
+    print(line.strip().upper())
+f.close()
+
+# Output:
+# SONG A
+# SONG B
+# SONG C
+# SONG D
+# SONG E
+
+# Task 3: Read IPL Scores from CSV
+
+# python
+import csv
+
+with open("ipl_scores.csv", "r") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        print("Winner:", row["winner"])
+
+# Example Output:
+# Winner: CSK
+# Winner: MI
+# Winner: RCB
+
+# Task 4: Read Movies from JSON
+
+# python
+import json
+
+with open("movies.json", "r") as file:
+    data = json.load(file)
+    for m in data:
+        print("Title:", m["title"], "| Rating:", m["rating"])
+
+# Example Output:
+# Title: Movie A | Rating: 8.2
+# Title: Movie B | Rating: 7.5
+# Title: Movie C | Rating: 9.0
+
+# Task 5: Pathlib Check and Create JSON File
+
+# python
+from pathlib import Path
+import json
+
+path = Path("my_fav_apps.json")
+
+if not path.exists():
+    apps = [
+        {"name": "Instagram", "category": "Social"},
+        {"name": "Zomato", "category": "Food"},
+        {"name": "Paytm", "category": "Finance"}
+    ]
+    with open(path, "w") as file:
+        json.dump(apps, file)
