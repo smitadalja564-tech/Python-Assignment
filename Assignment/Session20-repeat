@@ -1,0 +1,73 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 20-A
+
+
+# Task 1: GET Request – Latest Posts
+
+# python
+import requests
+
+res = requests.get("https://jsonplaceholder.typicode.com/posts")
+print("Status:", res.status_code)
+
+data = res.json()
+print("First post title:", data[0]["title"])
+
+# Output (example):
+# Status: 200
+# First post title: sunt aut facere repellat provident occaecati
+
+# Task 2: POST Request – Add New Post
+
+# python
+import requests
+
+payload = {
+    "title": "My First Post",
+    "body": "Hello from Python!",
+    "userId": 101
+}
+
+res = requests.post("https://jsonplaceholder.typicode.com/posts", json=payload)
+print("Status:", res.status_code)
+print("Response:", res.json())
+
+# Output (example):
+# Status: 201
+# Response: {'title': 'My First Post', 'body': 'Hello from Python!', 'userId': 101, 'id': 101}
+
+# Task 3: GET Users – Filter Emails Ending with .org
+
+# python
+import requests
+
+res = requests.get("https://jsonplaceholder.typicode.com/users")
+users = res.json()
+
+for u in users:
+    if u["email"].endswith(".org"):
+        print(u["username"])
+
+# Output (example):
+# Kamren
+# Delphine
+
+# Task 4: OMDB API – Avengers Search
+
+# python
+import requests
+
+url = "http://www.omdbapi.com/"
+params = {"apikey": "demo", "s": "Avengers"}
+
+res = requests.get(url, params=params)
+data = res.json()
+
+print("Total results:", data["totalResults"])
+
+# Output (example):
+# Total results: 133
