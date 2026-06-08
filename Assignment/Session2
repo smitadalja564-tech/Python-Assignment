@@ -1,0 +1,71 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 2
+
+
+# Task 1: Swiggy Order Variables
+
+# python
+item_price = 250
+delivery_fee = 30
+coupon_discount = 20
+
+print("Item Price:", item_price)
+print("Delivery Fee:", delivery_fee)
+print("Coupon Discount:", coupon_discount)
+
+# Output:
+# Item Price: 250
+# Delivery Fee: 30
+# Coupon Discount: 20
+
+# Task 2: Flipkart Product Price Check
+
+product_price = 1200
+
+if product_price > 1000:
+    print("Eligible for free delivery")
+else:
+    print("Delivery charges apply")
+
+# Output:
+# Eligible for free delivery
+
+# Task 3: Comments in Python Script
+
+# This script checks Flipkart product delivery eligibility
+
+"""
+This section demonstrates:
+1. Variable creation
+2. Indentation rules
+3. Use of comments
+"""
+
+product_price = 800
+
+if product_price > 1000:
+    print("Eligible for free delivery")
+else:
+    print("Delivery charges apply")
+
+# Output:
+# Delivery charges apply
+
+# Task 4: IPL Match Variables
+
+team_name = "Mumbai Indians"
+runs_scored = 185
+overs_played = 20
+
+print("Team Name:", team_name)
+print("Runs Scored:", runs_scored)
+print("Overs Played:", overs_played)
+
+# Output:
+# Team Name: Mumbai Indians
+# Runs Scored: 185
+# Overs Played: 20
