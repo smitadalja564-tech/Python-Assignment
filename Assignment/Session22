@@ -1,0 +1,96 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 22
+
+
+# Task 1: requests.Session() Example
+
+# python
+import requests
+
+s = requests.Session()
+res1 = s.get("https://www.flipkart.com")
+res2 = s.get("https://www.flipkart.com")
+
+print("First:", res1.status_code)
+print("Second:", res2.status_code)
+
+# Output (example):
+# First: 200
+# Second: 200
+
+# Task 2: OpenWeatherMap API Call
+
+# python
+import requests
+
+url = "https://api.openweathermap.org/data/2.5/weather"
+params = {"q": "Ahmedabad", "appid": "your_api_key", "units": "metric"}
+
+res = requests.get(url, params=params)
+data = res.json()
+print("Temp:", data["main"]["temp"], "°C")
+
+# Output (example):
+# Temp: 34.5 °C
+
+# Task 3: Async Fetch with httpx + asyncio
+
+# python
+import asyncio, httpx
+
+async def fetch_song():
+    async with httpx.AsyncClient() as c:
+        r = await c.get("https://jsonplaceholder.typicode.com/posts")
+        return r.json()[0]["title"]
+
+async def fetch_movie():
+    async with httpx.AsyncClient() as c:
+        r = await c.get("https://jsonplaceholder.typicode.com/comments")
+        return r.json()[0]["name"]
+
+async def main():
+    song, movie = await asyncio.gather(fetch_song(), fetch_movie())
+    print("Song:", song)
+    print("Movie:", movie)
+
+asyncio.run(main())
+
+# Output (example):
+# Song: sunt aut facere repellat provident occaecati
+# Movie: id labore ex et quam laborum
+
+# Task 4: Bearer Token Example
+
+# python
+import requests
+
+def get_user_profile():
+    url = "https://jsonplaceholder.typicode.com/users/1"
+    headers = {"Authorization": "Bearer faketoken123"}
+    res = requests.get(url, headers=headers)
+    data = res.json()
+    print("User:", data["name"])
+
+get_user_profile()
+
+# Output (example):
+# User: Leanne Graham
+
+# Task 5: OAuth 2.0 Login Flow (Spotify Example)
+
+# python
+client_id = "your_client_id"
+redirect_uri = "http://localhost:8888/callback"
+scope = "user-read-email"
+
+url = (
+    "https://accounts.spotify.com/authorize"
+    f"?response_type=code&client_id={client_id}"
+    f"&scope={scope}&redirect_uri={redirect_uri}"
+)
+
+print("Login URL:", url)
