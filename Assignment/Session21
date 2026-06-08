@@ -1,0 +1,77 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 21
+
+
+# Task 1: Product Class with Discount
+
+# python
+class Product:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def get_discounted_price(self):
+        return self.price * 0.9   # 10% off
+
+p = Product("Shoes", 1000)
+print(p.name, p.get_discounted_price())
+
+# Output:
+# Shoes 900.0
+
+# Task 2: Electronics Subclass with Override
+
+# python
+class Electronics(Product):
+    def get_discounted_price(self):
+        return self.price * 0.8   # 20% off
+
+e = Electronics("Laptop", 50000)
+print(e.name, e.get_discounted_price())
+
+# Output:
+# Laptop 40000.0
+
+# Task 3: Polymorphism with show_final_price()
+
+# python
+def show_final_price(item):
+    print(item.name, item.get_discounted_price())
+
+p = Product("Bag", 2000)
+e = Electronics("Mobile", 30000)
+
+show_final_price(p)
+show_final_price(e)
+
+# Output:
+# Bag 1800.0
+# Mobile 24000.0
+
+# Task 4: Ticket and PremiumTicket Classes
+
+# python
+class Ticket:
+    def __init__(self, price):
+        self.price = price
+
+    def get_final_price(self):
+        return self.price
+
+class PremiumTicket(Ticket):
+    def get_final_price(self):
+        return super().get_final_price() + 50   # add fee
+
+t1 = Ticket(200)
+t2 = PremiumTicket(200)
+
+print("Normal Ticket:", t1.get_final_price())
+print("Premium Ticket:", t2.get_final_price())
+
+# Output:
+# Normal Ticket: 200
+# Premium Ticket: 250
