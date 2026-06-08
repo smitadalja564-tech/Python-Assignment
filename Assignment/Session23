@@ -1,0 +1,117 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 23
+
+
+# Task 1: Weather API – Current Temp & Description
+
+# python
+import requests
+
+url = "https://api.openweathermap.org/data/2.5/weather"
+params = {"q": "Ahmedabad", "appid": "your_api_key", "units": "metric"}
+
+res = requests.get(url, params=params)
+data = res.json()
+print("Temp:", data["main"]["temp"], "°C")
+print("Weather:", data["weather"][0]["description"])
+
+# Output (example):
+# Temp: 34.5 °C
+# Weather: clear sky
+
+# Task 2: Crypto Prices – Bitcoin & Ethereum
+
+# python
+import requests, datetime
+
+url = "https://api.coingecko.com/api/v3/simple/price"
+params = {"ids": "bitcoin,ethereum", "vs_currencies": "usd"}
+
+res = requests.get(url, params=params)
+data = res.json()
+
+print("Date:", datetime.datetime.now())
+print("BTC:", data["bitcoin"]["usd"], "USD")
+print("ETH:", data["ethereum"]["usd"], "USD")
+
+# Output (example):
+# Date: 2026-06-07 23:34:00
+# BTC: 68000 USD
+# ETH: 3500 USD
+
+# Task 3: NASA APOD API – Save Image
+
+# python
+import requests
+
+url = "https://api.nasa.gov/planetary/apod"
+params = {"api_key": "DEMO_KEY"}
+
+res = requests.get(url, params=params)
+data = res.json()
+
+print("Title:", data["title"])
+print("Explanation:", data["explanation"])
+
+img_url = data["url"]
+img = requests.get(img_url).content
+
+with open("apod.jpg", "wb") as f:
+    f.write(img)
+
+# Output:
+# Title: Astronomy Picture of the Day
+# Explanation: (long text about today’s image)
+# Image saved as apod.jpg
+
+# Task 4: COVID‑19 API – India Stats
+
+# python
+import requests, pandas as pd
+
+url = "https://disease.sh/v3/covid-19/countries/India"
+res = requests.get(url)
+data = res.json()
+
+table = {
+    "Total Cases": data["cases"],
+    "Recovered": data["recovered"],
+    "Deaths": data["deaths"]
+}
+
+print(pd.DataFrame([table]))
+
+# Output (example table):
+
+# Total Cases	Recovered	Deaths
+# 45,000,000	44,000,000	530,000
+
+
+# Task 5: Combine Weather + Crypto
+
+# python
+import requests
+
+try:
+    # Weather
+    w_url = "https://api.openweathermap.org/data/2.5/weather"
+    w_params = {"q": "Mumbai", "appid": "your_api_key", "units": "metric"}
+    w_res = requests.get(w_url, params=w_params)
+    w_data = w_res.json()
+    temp = w_data["main"]["temp"]
+
+    # Crypto
+    c_url = "https://api.coingecko.com/api/v3/simple/price"
+    c_params = {"ids": "bitcoin", "vs_currencies": "usd"}
+    c_res = requests.get(c_url, params=c_params)
+    c_data = c_res.json()
+    btc = c_data["bitcoin"]["usd"]
+
+    print("Mumbai Temp:", temp, "°C | Bitcoin Price:", btc, "USD")
+
+except Exception as e:
+    print("Error fetching data:", e)
