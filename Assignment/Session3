@@ -1,0 +1,75 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 3
+
+
+# Task 1: Declare Variables and Show Data Types
+
+# python
+age = 21
+height_cm = 175.5
+name = "SMIT"
+has_spotify = True
+
+print("Age:", age, "Type:", type(age))
+print("Height (cm):", height_cm, "Type:", type(height_cm))
+print("Name:", name, "Type:", type(name))
+print("Spotify Account:", has_spotify, "Type:", type(has_spotify))
+
+# Output:
+# Age: 21 Type: <class 'int'>
+# Height (cm): 175.5 Type: <class 'float'>
+# Name: SMIT Type: <class 'str'>
+# Spotify Account: True Type: <class 'bool'>
+
+# Task 2: Total Cart Amount Function
+
+# python
+def total_cart_amount(prices):
+    total = 0.0
+    for price in prices:
+        total += float(price)
+    return total
+
+cart = ['199.99', '49', '350.75']
+print("Total Cart Amount:", total_cart_amount(cart))
+
+# Output:
+# Total Cart Amount: 599.74
+
+# Task 3: Cricket Score Input and Conversion
+
+# python
+score_str = input("Enter your cricket score: ")
+score = int(score_str)
+
+if score >= 50:
+    print("Half-century!")
+else:
+    print("Keep going!")
+
+# Input:
+# 45
+# Output:
+# Keep going!
+
+# Input:
+# 75
+# Output:
+# Half-century!
+
+# Task 4: Convert String 'True' to Boolean
+
+# python
+is_premium = "True"
+is_premium_bool = (is_premium == "True")
+
+print("Converted Value:", is_premium_bool)
+print("Type:", type(is_premium_bool))
+
+# Output:
+# Converted Value: True
+# Type: <class 'bool'>
