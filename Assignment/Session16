@@ -1,0 +1,89 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 16
+
+
+# Task 1: iter() and next() with Food Apps
+
+# python
+apps = ["Zomato", "Swiggy", "Dominos", "UberEats", "PizzaHut"]
+
+it = iter(apps)
+print(next(it))
+print(next(it))
+print(next(it))
+print(next(it))
+print(next(it))
+
+# Output:
+# Zomato
+# Swiggy
+# Dominos
+# UberEats
+# PizzaHut
+
+# Task 2: Playlist Generator
+
+# python
+def playlist_gen(songs):
+    for s in songs:
+        yield s
+
+pl = ["Song A", "Song B", "Song C"]
+for s in playlist_gen(pl):
+    print(s)
+
+# Output:
+# Song A
+# Song B
+# Song C
+
+# Task 3: Shopping Cart with enumerate()
+
+# python
+cart = ["Pizza", "Burger", "Fries", "Coke"]
+
+for i, item in enumerate(cart, start=1):
+    print("Item", i, ":", item)
+
+# Output:
+# Item 1 : Pizza
+# Item 2 : Burger
+# Item 3 : Fries
+# Item 4 : Coke
+
+# Task 4: Teams and Points with zip()
+
+# python
+teams = ["MI", "CSK", "RCB"]
+points = [18, 16, 14]
+
+for t, p in zip(teams, points):
+    print("Team:", t, ", Points:", p)
+
+# Output:
+# Team: MI , Points: 18
+# Team: CSK , Points: 16
+# Team: RCB , Points: 14
+
+# Task 5: Order ID Generator
+
+# python
+def order_id_gen():
+    n = 1001
+    while True:
+        yield n
+        n += 1
+
+ids = order_id_gen()
+print(next(ids))
+print(next(ids))
+print(next(ids))
+
+# Output:
+# 1001
+# 1002
+# 1003
