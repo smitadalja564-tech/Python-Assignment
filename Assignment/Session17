@@ -1,0 +1,81 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 17
+
+
+# Task 1: math.sqrt() Example
+
+# python
+import math
+
+print(math.sqrt(225))
+
+# Output:
+# 15.0
+
+# Task 2: os Module – Create Folder
+
+# python
+import os
+
+os.mkdir("MyDownloads")
+print(os.path.abspath("MyDownloads"))
+# Output (example):
+# C:\Users\SMIT\MyDownloads
+
+# Task 3: datetime Module – WhatsApp Style Timestamp
+
+# python
+import datetime
+
+now = datetime.datetime.now()
+print(now.strftime("%d-%m-%Y %H:%M:%S"))
+
+# Output (example):
+# 07-06-2026 22:52:00
+
+# Task 4: Custom Module playlist_utils.py
+
+# playlist_utils.py
+
+# python
+def add_song(pl, s):
+    pl.append(s)
+    return pl
+# main.py
+
+# python
+# import playlist_utils
+
+# pl = []
+# playlist_utils.add_song(pl, "Song A")
+# playlist_utils.add_song(pl, "Song B")
+# playlist_utils.add_song(pl, "Song C")
+
+# print(pl)
+
+# Output:
+# ['Song A', 'Song B', 'Song C']
+
+# Task 5: Virtual Environment + requests Package
+
+# bash
+# # create venv
+# python -m venv myenv
+
+# # activate venv (Windows)
+# myenv\Scripts\activate
+
+# # install requests
+# pip install requests
+# check_version.py
+
+# python
+import requests
+print(requests.__version__)
+
+# Output (example):
+# 2.31.0
