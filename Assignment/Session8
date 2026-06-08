@@ -1,0 +1,82 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 8
+
+
+# Task 1: Favorite Food Apps
+
+# python
+apps = ["Zomato", "Swiggy", "UberEats", "Dominos", "PizzaHut"]
+
+for a in apps:
+    print(a)
+# Output:
+# Zomato
+# Swiggy
+# UberEats
+# Dominos
+# PizzaHut
+
+# Task 2: Steps in a Week
+
+# python
+steps = [8000, 9500, 10200, 8700, 11000, 7000, 12000]
+
+i = 0
+while i < len(steps):
+    if steps[i] > 10000:
+        print("Day", i+1, "crossed 10000 steps:", steps[i])
+        break
+    i += 1
+
+# Output:
+# Day 3 crossed 10000 steps: 10200
+
+# Task 3: IPL Teams Longer than 6 Letters
+
+# python
+teams = ["CSK", "MI", "Sunrisers", "Delhi", "Kolkata"]
+
+for t in teams:
+    if len(t) <= 6:
+        continue
+    print(t)
+
+# Output:
+# Sunrisers
+# Kolkata
+
+# Task 4: Spotify Song Durations
+
+# python
+songs = [210, 180, 240, 300]
+
+for i, dur in enumerate(songs, start=1):
+    print(f"Song {i}: {dur} seconds")
+
+# Output:
+# Song 1: 210 seconds
+# Song 2: 180 seconds
+# Song 3: 240 seconds
+# Song 4: 300 seconds
+
+# Task 5: Flipkart Cart Total
+
+# python
+prices = [500, 0, 700, 900, 600]
+
+total = 0
+for p in prices:
+    if p == 0:
+        continue
+    total += p
+    if total > 2000:
+        break
+
+print("Final Total:", total)
+
+# Output:
+# Final Total: 2100
