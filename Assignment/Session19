@@ -1,0 +1,90 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 19
+
+
+# Task 1: Song Class
+
+# python
+class Song:
+    def __init__(self, title, artist, dur):
+        self.title = title
+        self.artist = artist
+        self.dur = dur
+
+fav = Song("Shape Of You", "Ed Sheeran", 240)
+print(fav.title, fav.artist, fav.dur)
+
+# Output:
+# Shape Of You Ed Sheeran 240
+
+# Task 2: Add play_preview Method
+
+# python
+class Song:
+    def __init__(self, title, artist, dur):
+        self.title = title
+        self.artist = artist
+        self.dur = dur
+
+    def play_preview(self):
+        print(f"Playing 30-second preview of {self.title} by {self.artist}")
+
+fav = Song("Shape Of You", "Ed Sheeran", 240)
+fav.play_preview()
+
+# Output:
+# Playing 30-second preview of Shape Of You by Ed Sheeran
+
+# Task 3: FoodOrder Class with Constructor
+
+# python
+class FoodOrder:
+    def __init__(self, rest, items, total):
+        self.rest = rest
+        self.items = items
+        self.total = total
+
+order = FoodOrder("Zomato", ["Pizza", "Burger"], 550)
+print(order.rest, order.items, order.total)
+
+# Output:
+# Zomato ['Pizza', 'Burger'] 550
+
+# Task 4: Add Item Method
+
+# python
+class FoodOrder:
+    def __init__(self, rest, items, total):
+        self.rest = rest
+        self.items = items
+        self.total = total
+
+    def add_item(self, name, price):
+        self.items.append(name)
+        self.total += price
+
+order = FoodOrder("Swiggy", ["Pasta"], 300)
+order.add_item("Sandwich", 150)
+order.add_item("Coke", 50)
+print(order.items, order.total)
+
+# Output:
+# ['Pasta', 'Sandwich', 'Coke'] 500
+
+# Task 5: Song Class with Optional Duration
+
+# python
+class Song:
+    def __init__(self, title, artist, dur=0):
+        self.title = title
+        self.artist = artist
+        self.dur = dur
+
+fav = Song("Senorita", "Shawn Mendes")  # no duration given
+print(fav.title, fav.artist, fav.dur)
+# Output:
+# Senorita Shawn Mendes 0
