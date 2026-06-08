@@ -1,0 +1,109 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 20
+
+
+# Task 1: Playlist Class with Private Attribute
+
+# python
+class Playlist:
+    def __init__(self):
+        self._songs = []   # private list
+
+    def add_song(self, s):
+        self._songs.append(s)
+
+    def show(self):
+        print(self._songs)
+
+pl = Playlist()
+pl.add_song("Song A")
+pl.add_song("Song B")
+pl.add_song("Song C")
+pl.show()
+
+# Output:
+# ['Song A', 'Song B', 'Song C']
+
+# Task 2: Product Class with Getters/Setters
+
+# python
+class Product:
+    def __init__(self, name, price):
+        self.name = name
+        self._price = price   # private
+
+    def get_price(self):
+        return self._price
+
+    def set_price(self, p):
+        self._price = p
+
+item = Product("Shoes", 1200)
+print(item.get_price())
+item.set_price(1500)
+print(item.get_price())
+
+# Output:
+# 1200
+# 1500
+
+# Task 3: Movie Class with Rating Validation
+
+# python
+class Movie:
+    def __init__(self, title, rating):
+        self.title = title
+        self._rating = rating
+
+    def get_rating(self):
+        return self._rating
+
+    def set_rating(self, r):
+        if 0 <= r <= 10:
+            self._rating = r
+        else:
+            print("Error: Rating must be between 0 and 10")
+
+m = Movie("Inception", 8.8)
+print(m.get_rating())
+m.set_rating(9.5)
+print(m.get_rating())
+m.set_rating(12)   # invalid
+
+# Output:
+# 8.8
+# 9.5
+# Error: Rating must be between 0 and 10
+
+# Task 4: Abstract PaymentMethod Class
+
+# python
+from abc import ABC, abstractmethod
+
+class PaymentMethod(ABC):
+    @abstractmethod
+    def pay(self, amt):
+        pass
+
+class Paytm(PaymentMethod):
+    def pay(self, amt):
+        print(f"Paytm: Paid ₹{amt}")
+
+class PhonePe(PaymentMethod):
+    def pay(self, amt):
+        print(f"PhonePe: Paid ₹{amt}")
+
+p1 = Paytm()
+p2 = PhonePe()
+
+p1.pay(500)
+p2.pay(700)
+
+
+# Output:
+# Paytm: Paid ₹500
+# PhonePe: Paid ₹700
