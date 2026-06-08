@@ -1,0 +1,70 @@
+# Session - 20# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 21-A
+
+
+# Task 1: POST Request with JSON Payload
+
+# python
+import requests
+
+payload = {"title": "Hello", "body": "Learning APIs", "userId": 1}
+res = requests.post("https://jsonplaceholder.typicode.com/posts", json=payload)
+print("Status:", res.status_code)
+print("Response:", res.json())
+
+# Output (example):
+# Status: 201
+# Response: {'title': 'Hello', 'body': 'Learning APIs', 'userId': 1, 'id': 101}
+
+# Task 2: Playlist POST Request
+
+# python
+import requests
+
+pl = {"title": "My Playlist", "body": "Best songs ever", "userId": 2}
+res = requests.post("https://jsonplaceholder.typicode.com/posts", json=pl)
+print("Playlist ID:", res.json()["id"])
+
+import requests
+
+data = {"name": "SMIT", "job": "Developer"}
+res = requests.post("https://reqres.in/api/users", json=data)
+resp = res.json()
+print("User ID:", resp["id"])
+print("Created At:", resp["createdAt"])
+
+# Output (example):
+# User ID: 789
+# Created At: 2026-06-07T18:30:00.000Z
+
+# Task 4: Save Latest 5 Posts to CSV
+
+# python
+import requests, csv
+
+res = requests.get("https://jsonplaceholder.typicode.com/posts")
+posts = res.json()[:5]
+
+with open("posts.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["title", "userId"])
+    for p in posts:
+        writer.writerow([p["title"], p["userId"]])
+# File posts.csv created with titles + userIds.
+
+# Task 5: Save Latest 5 Posts to JSON
+
+# python
+import requests, json
+
+res = requests.get("https://jsonplaceholder.typicode.com/posts")
+posts = res.json()[:5]
+
+with open("posts.json", "w") as f:
+    json.dump(posts, f)
+
+# File posts.json created with full post data.
