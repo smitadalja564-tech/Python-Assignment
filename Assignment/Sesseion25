@@ -1,0 +1,102 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 25
+
+
+# Task 1: Fetch & Save Raw JSON
+
+# python
+import requests, json
+
+url = "https://api.binance.com/api/v3/ticker/24hr"
+params = {"symbols": '["BTCUSDT","ETHUSDT","BNBUSDT","ADAUSDT","XRPUSDT","SOLUSDT","DOGEUSDT","DOTUSDT","MATICUSDT","LTCUSDT"]'}
+
+res = requests.get(url, params=params)
+data = res.json()
+
+with open("crypto_data.json", "w") as f:
+    json.dump(data, f)
+
+print("Saved", len(data), "coins to crypto_data.json")
+
+# Output:
+# Saved 10 coins to crypto_data.json
+
+# Task 2: Find Most Volatile Coin
+
+# python
+import json
+
+def find_most_volatile_coin(data):
+    return max(data, key=lambda c: float(c["priceChangePercent"]))["symbol"]
+
+with open("crypto_data.json") as f:
+    coins = json.load(f)
+
+print("Most volatile:", find_most_volatile_coin(coins))
+
+# Output (example):
+# Most volatile: DOGEUSDT
+
+# Task 3: Coins Below Average Price
+
+# python
+prices = [float(c["lastPrice"]) for c in coins]
+avg = sum(prices) / len(prices)
+
+below = [c["symbol"] for c in coins if float(c["lastPrice"]) < avg]
+print("Average price:", avg)
+print("Coins below average:", below)
+
+# Output (example):
+# Average price: 5000.0
+# Coins below average: ['ADAUSDT', 'XRPUSDT', 'DOGEUSDT', 'MATICUSDT']
+
+# Task 4: Rank Coins by Volume
+
+# python
+def rank_coins_by_volume(data):
+    sorted_coins = sorted(data, key=lambda c: float(c["volume"]), reverse=True)
+    for i, c in enumerate(sorted_coins[:5], start=1):
+        print("Rank", i, ":", c["symbol"], "| Volume:", c["volume"])
+
+rank_coins_by_volume(coins)
+
+# Output (example):
+# Rank 1 : BTCUSDT | Volume: 123456.0
+# Rank 2 : ETHUSDT | Volume: 98765.0
+# Rank 3 : BNBUSDT | Volume: 54321.0
+# Rank 4 : XRPUSDT | Volume: 43210.0
+# Rank 5 : ADAUSDT | Volume: 32100.0
+
+# Task 5: Automate Hourly Script with Error Handling
+
+# python
+import schedule, time, requests
+
+def job():
+    try:
+        res = requests.get(url, params=params, timeout=10)
+        if res.status_code == 200:
+            print("Data fetched:", len(res.json()), "coins")
+        elif res.status_code == 429:
+            print("Rate limit hit. Retrying...")
+            time.sleep(5)  # simple backoff
+        else:
+            print("API error:", res.status_code)
+    except requests.exceptions.RequestException as e:
+        print("Request failed:", e)
+
+schedule.every().hour.do(job)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+
+# Output (example):
+# Data fetched: 10 coins
+# —or—
+# Rate limit hit. Retrying...
