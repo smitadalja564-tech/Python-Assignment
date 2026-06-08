@@ -1,0 +1,79 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 6
+
+
+# Task 1: Insta Followers Dictionary
+
+# python
+insta_followers = {
+    "ajay": 1200,
+    "riya": 3400,
+    "smit": 5000,
+    "neha": 2200,
+    "arjun": 1500
+}
+print(insta_followers)
+
+# Output:
+# {'ajay': 1200, 'riya': 3400, 'smit': 5000, 'neha': 2200, 'arjun': 1500}
+
+# Task 2: Add, Update, Delete
+
+# python
+insta_followers["meera"] = 2700       # add new
+insta_followers["riya"] = 3600        # update
+del insta_followers["ajay"]           # delete
+print(insta_followers)
+
+# Output:
+# {'riya': 3600, 'smit': 5000, 'neha': 2200, 'arjun': 1500, 'meera': 2700}
+
+# Task 3: Food Prices > 200
+
+# python
+food_prices = {
+    "pizza": 250,
+    "burger": 150,
+    "pasta": 220,
+    "sandwich": 180,
+    "biryani": 300
+}
+
+for item, price in food_prices.items():
+    if price > 200:
+        print(item, price)
+
+# Output:
+# pizza 250
+# pasta 220
+# biryani 300
+
+# Task 4: Flipkart & Myntra Users Intersection
+
+# python
+flipkart_users = {"smit", "riya", "ajay", "neha", "arjun"}
+myntra_users = {"riya", "meera", "arjun", "smit", "dev"}
+
+common = flipkart_users & myntra_users
+print("Users on both:", common)
+
+# Output:
+# Users on both: {'riya', 'smit', 'arjun'}
+
+# Task 5: Unique Artists Function
+
+# python
+def get_unique_artists(sp1, sp2):
+    return sp1 | sp2
+
+playlist1 = {"arijit", "shreya", "kk"}
+playlist2 = {"kk", "sonu", "atif"}
+
+print(get_unique_artists(playlist1, playlist2))
+
+# Output:
+# {'arijit', 'shreya', 'kk', 'sonu', 'atif'}
