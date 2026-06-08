@@ -1,0 +1,63 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 5
+
+
+# Task 1: Playlist IDs List
+
+# python
+playlist_ids = [101, 102, 103, 104, 105]
+print(playlist_ids)
+
+# Output:
+# [101, 102, 103, 104, 105]
+
+# Task 2: Add More Song IDs
+
+# python
+playlist_ids.append(106)       # add one
+playlist_ids.extend([107, 108]) # add many
+print(playlist_ids)
+
+# Output:
+# [101, 102, 103, 104, 105, 106, 107, 108]
+
+# Task 3: Remove Last Played Song
+
+# python
+last_song = playlist_ids.pop()
+print("Removed:", last_song)
+print("Remaining:", playlist_ids)
+
+# Output:
+# Removed: 108
+# Remaining: [101, 102, 103, 104, 105, 106, 107]
+
+# Task 4: Tuple of Insta Filters
+
+# python
+insta_filters = ("Clarendon", "Gingham", "Moon", "Lark")
+print(insta_filters)
+
+# Trying to change will give error
+# insta_filters[0] = "Vintage"
+# Error (if run):
+# TypeError: 'tuple' object does not support item assignment
+
+# Task 5: List vs Tuple Example
+
+# python
+orders = ["Pizza", "Burger", "Pasta"]
+
+# IPL teams are fixed -> use tuple
+teams = ("CSK", "MI", "RCB", "KKR")
+
+print("Orders (list):", orders)
+print("Teams (tuple):", teams)
+
+# Output:
+# Orders (list): ['Pizza', 'Burger', 'Pasta']
+# Teams (tuple): ('CSK', 'MI', 'RCB', 'KKR')
