@@ -1,0 +1,66 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 7
+
+
+# Task 1: Spotify Listening Time
+
+# python
+time = int(input("Enter listening time (minutes): "))
+
+if time > 120:
+    print("You are a true music fan!")
+else:
+    print("Keep listening!")
+
+# Example Input: 150 → Output: You are a true music fan!
+# Example Input: 90 → Output: Keep listening!
+
+# Task 2: Zomato Order Amount
+
+# python
+amt = int(input("Enter Zomato order amount: "))
+
+if amt > 300:
+    print("Eligible for free delivery")
+else:
+    print("Delivery charges apply")
+    
+# Example Input: 350 → Output: Eligible for free delivery
+# Example Input: 200 → Output: Delivery charges apply
+
+# Task 3: Flipkart Cart Discount
+
+# python
+cart = int(input("Enter Flipkart cart total: "))
+
+if cart > 2000:
+    print("You get a 10% discount")
+elif cart > 1000:
+    print("You get a 5% discount")
+else:
+    print("No discount available")
+
+# Example Input: 2500 → Output: You get a 10% discount
+# Example Input: 1500 → Output: You get a 5% discount
+# Example Input: 800 → Output: No discount available
+
+# Task 4: IPL Fantasy Points (Nested if‑else)
+
+# python
+pts = int(input("Enter IPL fantasy points: "))
+
+if pts > 800:
+    print("Champion")
+else:
+    if pts >= 500:
+        print("Top Performer")
+    else:
+        print("Keep Trying")
+
+# Example Input: 900 → Output: Champion
+# Example Input: 600 → Output: Top Performer
+# Example Input: 300 → Output: Keep Trying
