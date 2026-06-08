@@ -1,0 +1,59 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 4
+
+
+# Task 1: Flipkart String Clean
+
+# python
+txt = "Flipkart-Sale2024"
+res = txt.lower().replace("-", " ")
+print(res)
+
+# Output:
+# flipkart sale2024
+
+# Task 2: Product Name Clean
+
+# python
+p = " OnePlus Nord-CE 3 "
+clean = p.strip().upper().replace("-", ":")
+print(clean)
+
+# Output:
+# ONEPLUS NORD:CE 3
+
+# Task 3: Split Product Code
+
+# python
+def split_code(pc):
+    return pc.split("-")
+
+print(split_code("ZOMATO-FOOD-2024"))
+
+# Output:
+# ['ZOMATO', 'FOOD', '2024']
+
+# Task 4: Slice String
+
+# python
+s = "Spotify_Premium_Offer"
+part = s[8:15]
+print(part)
+
+# Output:
+# Premium
+
+# Task 5: Format Deal Message
+
+# python
+prod = "Myntra Shirt"
+price = 799.5
+msg = f"Deal: {prod} is available at ₹{price:.2f} only!"
+print(msg)
+
+# Output:
+# Deal: Myntra Shirt is available at ₹799.50 only!
