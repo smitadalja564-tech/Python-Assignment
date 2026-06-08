@@ -1,0 +1,68 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 9
+
+
+# Task 1: Final Price Function
+
+# python
+def final_price(p, d):
+    return p - (p * d)
+
+print(final_price(1000, 0.1))
+
+# Output:
+# 900.0
+
+# Task 2: Delivery Charge Function
+
+# python
+def del_charge(a, city="Ahmedabad"):
+    if city == "Ahmedabad":
+        return 0
+    else:
+        return 50
+
+print(del_charge(500))
+print(del_charge(500, "Delhi"))
+
+# Output:
+# 0
+# 50
+
+# Task 3: Format Price Function
+
+# python
+def fmt_price(p, cur="INR"):
+    if cur == "INR":
+        return f"₹{p}"
+    elif cur == "USD":
+        return f"${p}"
+    else:
+        return str(p)
+
+print(fmt_price(500))
+print(fmt_price(500, "USD"))
+
+# Output:
+# ₹500
+# $500
+
+# Task 4: Apply Coupon Function
+
+# python
+def coupon(p, code=None):
+    if code == "ZOMATO10":
+        return p - (p * 0.1)
+    else:
+        return p
+
+print(coupon(1000, "ZOMATO10"))
+print(coupon(1000))
+
+# Output:
+# 900.0
+# 1000
