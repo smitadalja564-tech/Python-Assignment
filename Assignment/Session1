@@ -1,0 +1,45 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 1 
+
+
+#Task 1: Install Anaconda & Launch Jupyter Notebook
+
+# Install Anaconda from the official website.
+
+# Open Anaconda Navigator → click Launch Jupyter Notebook.
+
+# Browser opens with Jupyter dashboard.
+
+# Task 2: Create Notebook & Print Name + App  
+# File: insta_intro.ipynb
+
+# python
+print("SMIT - Instagram")
+
+# Output:
+# SMIT - Instagram
+
+# Task 3: Print Welcome Message in Notebook
+
+# python
+print("Welcome to Data Science with Python!")
+
+# Output:
+# Welcome to Data Science with Python!
+
+# Task 4: Python Script hello_app.py  
+# File: hello_app.py
+
+# python
+print("Hello from .py file!")
+# Run in terminal:
+
+# bash
+# python hello_app.py
+
+# Output:
+# Hello from .py file!
