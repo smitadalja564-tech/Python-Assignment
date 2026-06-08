@@ -1,0 +1,98 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 13
+
+
+# Task 1: Recursive Playlist Songs
+
+# python
+def print_playlist_songs(songs):
+    if not songs:   # base case → empty list
+        return
+    print(songs[0]) # print first song
+    print_playlist_songs(songs[1:]) # call again with rest
+
+playlist = ["Song A", "Song B", "Song C"]
+print_playlist_songs(playlist)
+
+# Output:
+# Song A
+# Song B
+# Song C
+
+# Task 2: Recursive Unread Messages Count
+
+# python
+def count_unread_messages(msgs):
+    total = msgs.get("count", 0)
+    for sub in msgs.get("subgroups", []):
+        total += count_unread_messages(sub)
+    return total
+
+messages = {
+    "count": 5,
+    "subgroups": [
+        {"count": 3, "subgroups": []},
+        {"count": 2, "subgroups": [
+            {"count": 4, "subgroups": []}
+        ]}
+    ]
+}
+
+print(count_unread_messages(messages))
+
+# Output:
+# 14
+
+# Task 3: Scope Example
+
+# python
+x = "global"
+def outer():
+    x = "outer"
+    def inner():
+        nonlocal x
+        x = "inner"
+    inner()
+    print("Inside outer:", x)
+
+outer()
+print("Outside:", x)
+
+
+# x = "global" → global variable.
+
+# Inside outer(), x = "outer" → local to outer.
+
+# Inside inner(), nonlocal x changes outer’s x to "inner".
+
+# Print inside outer → "inner".
+
+# Print outside → "global".
+
+# Output:
+# Inside outer: inner
+# Outside: global
+
+# Task 4: Recursive Format Number Short
+
+# python
+def format_number_short(n):
+    if n >= 1000000:
+        return f"{n/1000000:.1f}M"
+    elif n >= 1000:
+        return f"{n/1000:.1f}K"
+    else:
+        return str(n)
+
+print(format_number_short(1500))
+print(format_number_short(1200000))
+print(format_number_short(500))
+
+# Output:
+# 1.5K
+# 1.2M
+# 500
