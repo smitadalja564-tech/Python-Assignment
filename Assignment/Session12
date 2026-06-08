@@ -1,0 +1,67 @@
+# Assignment: Python for Data Science 
+# Due Date: Tuesday, June 9, 2026
+# Student Name: SMITKUMAR ADALJA
+
+
+# Session - 12
+
+
+# Task 1: Spotify Songs Lowercase with map + lambda
+
+# python
+songs = ["Shape Of You", "Blinding Lights", "Levitating", "Senorita"]
+clean = list(map(lambda x: x.lower(), songs))
+print(clean)
+
+# Output:
+# ['shape of you', 'blinding lights', 'levitating', 'senorita']
+
+# Task 2: Zomato Ratings Filter
+
+# python
+ratings = [4.2, 3.8, 4.5, 2.9, 3.5]
+good = list(filter(lambda r: r > 4.0, ratings))
+print(good)
+
+# Output:
+# [4.2, 4.5]
+
+# Task 3: Flipkart Cart Total with reduce
+
+# python
+from functools import reduce
+
+cart = [499, 1299, 299, 799]
+total = reduce(lambda a, b: a + b, cart)
+print(total)
+
+# Output:
+# 2896
+
+# Task 4: Format Followers with map
+
+# python
+def fmt_followers(n):
+    if n >= 1000000:
+        return f"{n/1000000:.1f}M"
+    elif n >= 1000:
+        return f"{n/1000:.1f}K"
+    else:
+        return str(n)
+
+counts = [950, 1500, 25000, 1200000]
+res = list(map(fmt_followers, counts))
+print(res)
+
+# Output:
+# ['950', '1.5K', '25.0K', '1.2M']
+
+# Task 5: IPL Scores Filter Odd Numbers with lambda
+
+# python
+scores = [101, 98, 120, 77, 88]
+even_scores = list(filter(lambda x: x % 2 == 0, scores))
+print(even_scores)
+
+# Output:
+# [98, 120, 88]
