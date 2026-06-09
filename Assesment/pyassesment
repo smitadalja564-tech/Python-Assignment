@@ -1,0 +1,23 @@
+Assessment File
+
+Section A: Concept Application
+
+
+Q1. What is the difference between a .py file and a .ipynb file?
+Ans :- A .py file is a standard Python script file that contains only Python code. It is mainly used for developing and running Python programs. A .ipynb file is a Jupyter Notebook file that contains code, text, images, graphs, and outputs in separate cells. It allows users to run code step by step and view results immediately. This makes it useful for data analysis and machine learning projects. Jupyter Notebooks also help in documenting work clearly. A .py file is mainly used for application development, while an .ipynb file is preferred for experimentation and learning.
+
+
+Q2. What is the difference between a numerical feature and a categorical feature?
+Ans :- A numerical feature contains values that can be measured and used in mathematical calculations. Examples include age, cholesterol level, blood pressure, and heart rate. A categorical feature contains values that represent categories or groups, such as gender and chest pain type. Numerical features provide quantitative information, while categorical features provide qualitative information. Both types of features are important in machine learning because they help models understand different aspects of the data. Numerical data is used for calculations, whereas categorical data is used for classification.
+
+
+Q3. Why does the data type of your target variable matter before framing a prediction problem?
+Ans :- The target variable is the output that a machine learning model tries to predict. Its data type helps determine whether the problem is classification or regression. If the target contains categories such as 0 and 1, it is a classification problem. If it contains continuous numerical values, it is a regression problem. Choosing the correct problem type helps in selecting the appropriate algorithm and evaluation method. In the Heart Disease dataset, the target variable represents the presence or absence of heart disease, so it is treated as a classification task.
+
+
+Q4. What does a correlation value of 0.23 tell you about two variables?
+Ans :- Correlation measures the strength and direction of the relationship between two variables. A correlation value of 0.23 indicates a weak positive relationship. This means that as age increases, the likelihood of heart disease may increase slightly. However, the relationship is not very strong. Other factors such as cholesterol, blood pressure, and lifestyle also influence heart disease risk. Correlation shows association but does not prove causation. Therefore, age alone cannot accurately predict heart disease.
+
+
+Q5. What is the difference between a rule-based system and a data-driven approach?
+Ans :- A rule-based system works using predefined rules created by experts. For example, if cholesterol > 240, the patient is marked as high risk. The system always follows the same rule and does not learn from new data. A data-driven approach uses historical data and machine learning algorithms to learn patterns automatically. It considers multiple factors such as age, cholesterol, blood pressure, and heart rate. Data-driven systems can improve as more data becomes available and often provide better accuracy. Therefore, rule-based systems use fixed rules, while data-driven systems learn from data and make intelligent predictions.
