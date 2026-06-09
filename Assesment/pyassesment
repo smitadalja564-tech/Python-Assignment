@@ -2,7 +2,6 @@ Assessment File
 
 Section A: Concept Application
 
-
 Q1. What is the difference between a .py file and a .ipynb file?
 Ans :- A .py file is a standard Python script file that contains only Python code. It is mainly used for developing and running Python programs. A .ipynb file is a Jupyter Notebook file that contains code, text, images, graphs, and outputs in separate cells. It allows users to run code step by step and view results immediately. This makes it useful for data analysis and machine learning projects. Jupyter Notebooks also help in documenting work clearly. A .py file is mainly used for application development, while an .ipynb file is preferred for experimentation and learning.
 
