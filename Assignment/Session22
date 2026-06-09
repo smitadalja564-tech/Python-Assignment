@@ -38,7 +38,7 @@ print("Temp:", data["main"]["temp"], "°C")
 # Temp: 34.5 °C
 
 # Task 3: Async Fetch with httpx + asyncio
-
+# install httpx pack
 # python
 import asyncio, httpx
 
