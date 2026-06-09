@@ -77,24 +77,35 @@ rank_coins_by_volume(coins)
 # python
 import schedule, time, requests
 
+url = "https://api.openweathermap.org/data/2.5/weather"
+params = {"q": "Ahmedabad", "appid": "YOUR_REAL_KEY", "units": "metric"}
+
 def job():
     try:
         res = requests.get(url, params=params, timeout=10)
         if res.status_code == 200:
-            print("Data fetched:", len(res.json()), "coins")
+            data = res.json()
+            temp = data["main"]["temp"]
+            desc = data["weather"][0]["description"]
+            print("Temp:", temp, "°C | Weather:", desc)
         elif res.status_code == 429:
             print("Rate limit hit. Retrying...")
-            time.sleep(5)  # simple backoff
+            time.sleep(5)
         else:
-            print("API error:", res.status_code)
+            print("API error:", res.status_code, res.text)
     except requests.exceptions.RequestException as e:
         print("Request failed:", e)
 
-schedule.every().hour.do(job)
+schedule.every(1).hours.do(job)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+print("Scheduler started... Press Ctrl+C to stop.")
+try:
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+except KeyboardInterrupt:
+    print("\nScheduler stopped by user.")
+
 
 # Output (example):
 # Data fetched: 10 coins
