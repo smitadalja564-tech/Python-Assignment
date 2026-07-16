@@ -20,3 +20,72 @@ Ans :- Correlation measures the strength and direction of the relationship betwe
 
 Q5. What is the difference between a rule-based system and a data-driven approach?
 Ans :- A rule-based system works using predefined rules created by experts. For example, if cholesterol > 240, the patient is marked as high risk. The system always follows the same rule and does not learn from new data. A data-driven approach uses historical data and machine learning algorithms to learn patterns automatically. It considers multiple factors such as age, cholesterol, blood pressure, and heart rate. Data-driven systems can improve as more data becomes available and often provide better accuracy. Therefore, rule-based systems use fixed rules, while data-driven systems learn from data and make intelligent predictions.
+
+
+Section B: Practical Task
+
+1. Automated Data Ingestion
+import pandas as pd
+df = pd.read_csv("heart.csv")
+# type-cast categorical variables
+df['sex'] = df['sex'].astype('category')
+df['cp'] = df['cp'].astype('category')
+df['restecg'] = df['restecg'].astype('category')
+
+2. Outlier Detection (IQR + Boxplot)
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+for col in ['chol','thalach']:
+    Q1 = df[col].quantile(0.25)
+    Q3 = df[col].quantile(0.75)
+    IQR = Q3 - Q1
+    lower = Q1 - 1.5*IQR
+    upper = Q3 + 1.5*IQR
+    outliers = df[(df[col] < lower) | (df[col] > upper)]
+    print(f"{col} outliers:", outliers.shape[0])
+    sns.boxplot(x=df[col])
+    plt.show()
+
+3. Multivariate Analysis (Heatmap)
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+corr = df.corr()
+plt.figure(figsize=(10,8))
+sns.heatmap(corr, annot=True, cmap="coolwarm")
+plt.show()
+# check which features have highest correlation with 'target'
+
+4. Feature Engineering
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+num_cols = ['age','chol','thalach']
+df[num_cols] = scaler.fit_transform(df[num_cols])
+
+# derived feature: Age-adjusted Max Heart Rate
+df['age_adj_hr'] = df['thalach'] / df['age']
+
+
+Section C: Mini Project
+
+1. Title
+Cardiac Risk Stratification and Clinical Decision Support System
+
+2. Problem Statement
+We want to make a model that can predict heart disease. 
+This helps doctors find risky patients early and give preventive care.
+
+3. Dataset Recommendation
+Use Heart Disease dataset (UCI / Kaggle). 
+If not found, search "UCI Heart Disease dataset" on Kaggle or UCI ML repo.
+
+4. Required Deliverables
+- Clean CSV file: remove missing values, change data types.
+- Jupyter Notebook: show EDA (graphs, summary, feature study).
+- Feature-Target matrix: check which features affect target most.
+- Report: compare
+   • Predictive model → learns from data, gives probability.  
+   • Rule-based → fixed condition like cholesterol > 240.  
+   Show that predictive model is more flexible and accurate.
